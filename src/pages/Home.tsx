@@ -16,16 +16,16 @@ const fadeUp = {
 };
 
 const galleryPreview = [
-  { src: "/assets/kids4.png", pos: "center 28%", wide: false },
-  { src: "/assets/School image.jpeg", pos: "center 45%", wide: true },
-  { src: "/assets/Kids1.png", pos: "center 35%", wide: false },
-  { src: "/assets/kids3.png", pos: "center 40%", wide: false },
+  { src: "/assets/kids8.png", pos: "center 28%", wide: false },
+  { src: "/assets/School image.jpeg", pos: "center 42%", wide: true },
+  { src: "/assets/kids10.png", pos: "center 35%", wide: false },
+  { src: "/assets/kids7.png", pos: "center 32%", wide: false },
 ];
 
 const facilityImages = [
+  { src: "/assets/kids6.png", pos: "center 30%" },
+  { src: "/assets/kids9.png", pos: "center 28%" },
   { src: "/assets/Kids1.png", pos: "center 35%" },
-  { src: "/assets/kids4.png", pos: "center 30%" },
-  { src: "/assets/kids3.png", pos: "center 40%" },
 ];
 
 export default function Home() {
@@ -45,10 +45,10 @@ export default function Home() {
               viewport={{ once: true, margin: "-80px" }}
               variants={fadeUp}
               className="card-media card-media--hover relative aspect-[4/3] rounded-2xl md:rounded-[2rem] shadow-xl border border-slate-200/80"
-              style={{ "--img-pos": "center 38%" } as CSSProperties}
+              style={{ "--img-pos": "center 32%" } as CSSProperties}
             >
               <img
-                src="/assets/kids3.png"
+                src="/assets/kids 2.png"
                 alt="Students at Prarthana School"
                 loading="lazy"
               />
@@ -215,10 +215,10 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
             className="card-media relative rounded-2xl md:rounded-[2rem] overflow-hidden aspect-[4/3] sm:aspect-[16/10] md:aspect-[21/9] shadow-2xl"
-            style={{ "--img-pos": "center 32%" } as CSSProperties}
+            style={{ "--img-pos": "center 28%" } as CSSProperties}
           >
             <img
-              src="/assets/kids4.png"
+              src="/assets/kids5.png"
               alt="Student activities at Prarthana"
               loading="lazy"
             />

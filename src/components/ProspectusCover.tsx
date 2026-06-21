@@ -1,16 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { animate, useMotionValue } from "framer-motion";
+import { useMotionValue } from "framer-motion";
 import Hero from "./Hero";
-import PageCurlSheet from "./PageCurlSheet";
 import { AmbientSoundToggle } from "./AmbientSound";
 import { useAmbientSound } from "../context/AmbientSoundContext";
+import {
+  animatePageTurn,
+  prefersReducedMotion,
+} from "../lib/pageTurn";
+import { PageTurnSheet } from "./PageTurnOverlay";
 
 interface ProspectusCoverProps {
   onTurnComplete?: () => void;
 }
-
-const TURN_DURATION = 2.05;
-const TURN_EASE = [0.25, 0.1, 0.2, 1] as const;
 
 function CoverContent() {
   return (
@@ -35,21 +36,15 @@ export default function ProspectusCover({ onTurnComplete }: ProspectusCoverProps
     lockedRef.current = true;
     setIsAnimating(true);
 
-    animate(progress, 1, {
-      duration: TURN_DURATION,
-      ease: TURN_EASE,
-      onComplete: () => {
-        setIsTurned(true);
-        setIsAnimating(false);
-        onTurnComplete?.();
-      },
+    animatePageTurn(progress, () => {
+      setIsTurned(true);
+      setIsAnimating(false);
+      onTurnComplete?.();
     });
   }, [isTurned, onTurnComplete, progress]);
 
   useEffect(() => {
-    setReducedMotion(
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    );
+    setReducedMotion(prefersReducedMotion());
   }, []);
 
   useEffect(() => {
@@ -134,9 +129,9 @@ export default function ProspectusCover({ onTurnComplete }: ProspectusCoverProps
 
   return (
     <div className="prospectus-cover-root">
-      <PageCurlSheet progress={progress}>
+      <PageTurnSheet progress={progress}>
         <CoverContent />
-      </PageCurlSheet>
+      </PageTurnSheet>
     </div>
   );
 }

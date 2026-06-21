@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import AmbientSound, { AmbientSoundProvider } from "./components/AmbientSound";
+import { PageTurnProvider } from "./context/PageTurnContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Academics from "./pages/Academics";
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <Router>
       <AmbientSoundProvider>
+        <PageTurnProvider>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen bg-[#fcfdfd]">
           <Navbar />
@@ -36,6 +38,7 @@ export default function App() {
           <Footer />
           <AmbientSound />
         </div>
+        </PageTurnProvider>
       </AmbientSoundProvider>
     </Router>
   );

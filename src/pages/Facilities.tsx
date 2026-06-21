@@ -13,28 +13,32 @@ export default function Facilities() {
       title: "State-of-the-Art Science Laboratories",
       desc: "Our physics, chemistry, and biology labs are spacious and designed strictly according to safety protocols. Each lab features specialized workbenches, standard instruments (microscopes, titration units, test kits), and direct educator supervision.",
       detail: "Three dedicated labs with an aggregate footprint of 2400 sq.ft.",
-      image: "/assets/Kids1.png"
+      image: "/assets/kids4.png",
+      imgPos: "center 28%",
     },
     {
       icon: <Laptop className="w-6 h-6 text-primary" />,
       title: "Multimedia Smart Classrooms",
       desc: "We believe visual aids speed up learning retention. Our classrooms feature interactive digital smartboards, HD projectors, and acoustic systems. Teachers leverage curated digital libraries to display complex geometry and science structures.",
       detail: "All secondary classrooms are 100% smart-board active.",
-      image: "/assets/kids3.png"
+      image: "/assets/kids8.png",
+      imgPos: "center 30%",
     },
     {
       icon: <BookOpen className="w-6 h-6 text-primary" />,
       title: "Vast Library & Resource Center",
       desc: "A quiet space designed to inspire research. The school library features over 10,000 reference volumes, educational encyclopedias, children's literature, daily periodicals, and computer stations for searching e-journals.",
       detail: "Lending facility open to all grades, with weekly reading hours.",
-      image: "/assets/kids6.png"
+      image: "/assets/kids6.png",
+      imgPos: "center 25%",
     },
     {
       icon: <Bus className="w-6 h-6 text-primary" />,
       title: "Safe GPS-tracked Bus Network",
       desc: "Our school buses traverse all critical sectors of Hanur, operated by experienced licensed drivers and monitored by security cameras. We coordinate daily routes to ensure child safety and transit comfort.",
       detail: "Our fleet spans a 25km radius with active GPS tracking.",
-      image: "/assets/SchoolBus.png"
+      image: "/assets/SchoolBus.png",
+      imgPos: "center center",
     }
   ];
 
@@ -103,7 +107,7 @@ export default function Facilities() {
                   style={
                     item.image.includes("SchoolBus")
                       ? undefined
-                      : ({ "--img-pos": "center 35%" } as CSSProperties)
+                      : ({ "--img-pos": item.imgPos ?? "center 30%" } as CSSProperties)
                   }
                 >
                   <img 
