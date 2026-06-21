@@ -134,6 +134,28 @@
 }
 
 @layer base {
+  /* Responsive hero height — desktop 85–100vh, tablet 75–85vh, mobile 65–80vh.
+     clamp() keeps it bounded on very tall/short viewports without empty space. */
+  :root {
+    --hero-height: clamp(40rem, 92vh, 64rem);
+  }
+  @media (max-width: 1024px) {
+    :root {
+      --hero-height: clamp(33rem, 82vh, 52rem);
+    }
+  }
+  @media (max-width: 640px) {
+    :root {
+      --hero-height: clamp(26rem, 76vh, 42rem);
+    }
+  }
+  /* Short landscape phones: cap to viewport so the building isn't pushed away. */
+  @media (max-height: 480px) and (orientation: landscape) {
+    :root {
+      --hero-height: 100vh;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
   }

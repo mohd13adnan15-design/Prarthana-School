@@ -52,22 +52,35 @@ const galleryPreviews = [
 
 export default function Home() {
   const { scrollY } = useScroll();
-  const bgY = useTransform(scrollY, [0, 1000], [0, 150]);
+  // Gentle parallax — kept small so the building edges never expose during scroll.
+  const bgY = useTransform(scrollY, [0, 1000], [0, 70]);
 
   return (
     <div className="bg-[#fcfdfd] selection:bg-amber-100 selection:text-amber-900">
 
-      {/* HERO — name, tagline, one line, campus image, one call to action */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* HERO — the school building is the visual focus; responsive height + positioning */}
+      <section
+        className="relative flex items-center justify-center overflow-hidden"
+        style={{ minHeight: "var(--hero-height)" }}
+      >
         <motion.div className="absolute inset-0 z-0 select-none pointer-events-none" style={{ y: bgY }}>
+          {/* Building stays centered; vertical focus shifts by breakpoint so the
+              full front elevation (roof + entrance) is preserved on every device. */}
           <img
             src="/assets/School image.jpeg"
-            alt="Prarthana English Medium School campus"
-            className="w-full h-[120%] object-cover object-center scale-110"
-            style={{ transformOrigin: "center top" }}
+            alt="Prarthana English Medium School campus building"
+            className="w-full h-[112%] object-cover object-[center_42%] sm:object-[center_45%] lg:object-[center_48%]"
           />
-          <div className="absolute inset-0 bg-[#0f204a]/80 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0c1630]/40 via-[#0f204a]/20 to-[#0c1630]" />
+          {/* Subtle premium gradients: enough contrast for white type and the navbar,
+              while letting the architecture remain clearly visible. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0c1630]/45 via-transparent to-[#0c1630]/60" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 55% at 50% 46%, rgba(12,22,48,0.42) 0%, rgba(12,22,48,0.14) 55%, transparent 78%)",
+            }}
+          />
         </motion.div>
 
         <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center flex flex-col items-center">
