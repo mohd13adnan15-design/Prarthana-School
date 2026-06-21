@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { 
-  Atom, Laptop, BookOpen, Bus, Heart, Trophy
+  Atom, Laptop, BookOpen, Bus, Heart, Trophy, MapPin, ArrowRight
 } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
 
@@ -160,6 +160,63 @@ export default function Facilities() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Campus & Location Section */}
+      <section className="relative py-28 md:py-36 bg-[#080d1a] overflow-hidden text-white mt-24">
+        <div className="absolute inset-0 z-0 opacity-20">
+          <img
+            src="/assets/School image.jpeg"
+            alt="Hanur campus landscape"
+            className="w-full h-full object-cover blur-sm"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080d1a] via-[#080d1a]/80 to-transparent" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-6 flex flex-col gap-6 text-left">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              The Campus
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal leading-tight text-white">
+              A serene sanctuary in <span className="italic text-accent">Hanur</span>
+            </h2>
+            <p className="text-slate-400 font-light leading-relaxed text-sm md:text-base">
+              Nestled at Ajjipura Village on Ramapura Main Road, our campus offers a safe haven away from noise, yet stays closely connected to local transit lines. Wide walking lanes, botanical gardens, and spacious assembly points create a calm atmosphere for study.
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Prarthana+English+Medium+School+Hanur+Chamarajanagara"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-widest hover:underline cursor-pointer w-fit"
+            >
+              View on Google Maps <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <div className="lg:col-span-6">
+            <div className="glass-card rounded-[2rem] p-8 border border-white/5 flex flex-col gap-4 text-left">
+              <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <h4 className="font-serif text-lg font-bold text-white">Hanur, Chamarajanagara</h4>
+              <p className="text-xs text-slate-300 font-light leading-relaxed">
+                Our geographical design helps parents easily arrange pick-ups, coordinating smoothly with our GPS-linked bus network covering suburban lines.
+              </p>
+              <div className="border-t border-white/5 pt-4 mt-2 grid grid-cols-2 gap-4 text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                <div>
+                  <span className="block text-[10px] text-slate-500 mb-1">Campus footprint</span>
+                  2.5 Serene Acres
+                </div>
+                <div>
+                  <span className="block text-[10px] text-slate-500 mb-1">Security coverage</span>
+                  24/7 Monitored
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

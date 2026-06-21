@@ -51,6 +51,29 @@ export default function About() {
     }
   ];
 
+  const principles = [
+    {
+      num: "01",
+      title: "Sanctuary of Care & Security",
+      desc: "Our campus operates under strict 24/7 digital surveillance and student-welfare frameworks, providing a protective, inclusive home where every child is personally recognized."
+    },
+    {
+      num: "02",
+      title: "The Digital Learning Horizon",
+      desc: "By integrating premium smartboards, interactive media tools, and digital resources, we turn abstract science and mathematics into direct, visual discovery."
+    },
+    {
+      num: "03",
+      title: "Holistic Character Architect",
+      desc: "We balance intensive academic study with track events, skating lanes, debates, and fine arts to shape emotional resilience and collaborative leadership."
+    },
+    {
+      num: "04",
+      title: "Timeless Moral Anchor",
+      desc: "We instill core Indian ethics, empathy, and cultural heritage alongside modern global perspectives, ensuring students remain grounded in high values."
+    }
+  ];
+
   const trustees = [
     {
       name: "Sri. K. S. Chandrashekar",
@@ -172,6 +195,45 @@ export default function About() {
               </p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Why Choose Us / Guiding Principles */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="max-w-3xl mb-16">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary bg-primary/5 px-4 py-1.5 rounded-full border border-primary/10 inline-block mb-4">
+              Our Principles
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-dark-navy leading-tight">
+              An ecosystem engineered for <span className="italic text-primary">potential</span>.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 border-t border-slate-100 pt-12">
+            {principles.map((story, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: (idx % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex gap-6 items-start py-4"
+              >
+                <span className="text-4xl md:text-5xl font-serif font-light text-accent tracking-tighter">
+                  {story.num}
+                </span>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl md:text-2xl font-serif font-semibold text-dark-navy">
+                    {story.title}
+                  </h3>
+                  <p className="text-slate-500 text-sm md:text-base leading-relaxed font-light">
+                    {story.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
