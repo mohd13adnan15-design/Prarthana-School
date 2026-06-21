@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import ChapterNav from "../components/ChapterNav";
 import Button from "../components/Button";
 
 export default function Admissions() {
@@ -375,6 +376,8 @@ export default function Admissions() {
           </AnimatePresence>
         </div>
       </section>
+
+      <ChapterNav />
     </div>
   );
 }

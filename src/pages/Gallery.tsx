@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Search, Camera, ChevronLeft, ChevronRight } from "lucide-react";
+import ChapterNav from "../components/ChapterNav";
 
 interface GalleryItem {
   id: number;
@@ -119,14 +120,13 @@ export default function Gallery() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 key={item.id}
                 onClick={() => setLightboxIndex(index)}
-                className={`break-inside-avoid mb-8 group relative overflow-hidden rounded-[2rem] shadow-xl ${item.aspect} bg-slate-50 border border-slate-100 cursor-pointer`}
+                className={`break-inside-avoid mb-8 group relative overflow-hidden rounded-[2rem] shadow-xl ${item.aspect} border border-slate-100 cursor-pointer card-media card-media--hover`}
               >
-                {/* Soft backdrop scale */}
                 <img 
                   src={item.img} 
                   alt={item.title} 
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out" 
+                  style={{ objectPosition: "center 35%" }}
                 />
                 
                 {/* Soft bottom-up dark gradient overlay */}
@@ -215,6 +215,8 @@ export default function Gallery() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <ChapterNav />
     </div>
   );
 }

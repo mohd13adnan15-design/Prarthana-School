@@ -3,6 +3,7 @@ import {
   Music, Atom, Trophy, Compass, BookOpen, Star, Palette
 } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import ChapterNav from "../components/ChapterNav";
 
 export default function Activities() {
   const clubs = [
@@ -151,6 +152,8 @@ export default function Activities() {
           </div>
         </div>
       </section>
+
+      <ChapterNav />
     </div>
   );
 }

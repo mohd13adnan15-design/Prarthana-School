@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
 import { 
   Atom, Laptop, BookOpen, Bus, Heart, Trophy
 } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import ChapterNav from "../components/ChapterNav";
 
 export default function Facilities() {
   const list = [
@@ -94,11 +96,19 @@ export default function Facilities() {
                 }`}
               >
                 {/* Visual Image Block */}
-                <div className="lg:w-1/2 w-full rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/80 aspect-video relative group bg-white flex items-center justify-center">
+                <div
+                  className={`lg:w-1/2 w-full rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/80 aspect-video relative group card-media card-media--hover ${
+                    item.image.includes("SchoolBus") ? "card-media--contain" : ""
+                  }`}
+                  style={
+                    item.image.includes("SchoolBus")
+                      ? undefined
+                      : ({ "--img-pos": "center 35%" } as CSSProperties)
+                  }
+                >
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className={`w-full h-full ${item.image.includes('SchoolBus') ? 'object-contain p-6 bg-slate-50/50' : 'object-cover'} group-hover:scale-105 transition-transform duration-[1200ms] ease-out`} 
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-[#0f204a]/5 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
@@ -163,6 +173,8 @@ export default function Facilities() {
           </div>
         </div>
       </section>
+
+      <ChapterNav />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Compass, Award, Heart, BookOpen, UserCheck, Shield } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import ChapterNav from "../components/ChapterNav";
 
 const cardTransition = { type: "spring" as const, stiffness: 300, damping: 22 };
 
@@ -266,6 +267,8 @@ export default function About() {
           ))}
         </div>
       </section>
+
+      <ChapterNav />
     </div>
   );
 }

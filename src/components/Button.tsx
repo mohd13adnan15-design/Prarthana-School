@@ -24,7 +24,7 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
+    "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
 
   const variants = {
     primary:
@@ -32,23 +32,24 @@ export default function Button({
     secondary:
       "bg-white hover:bg-slate-50 text-primary border border-slate-200 shadow-sm focus:ring-primary-light",
     accent:
-      "bg-accent hover:bg-accent-dark text-dark-navy shadow-md hover:shadow-lg focus:ring-accent",
+      "bg-accent hover:bg-accent-dark text-dark-navy shadow-md focus:ring-accent btn-premium-gold",
     glass:
-      "glass-panel hover:bg-white/60 text-primary-dark border border-white/50 shadow-sm focus:ring-primary-light",
+      "glass-panel hover:bg-white/70 text-dark-navy border border-white/60 shadow-sm focus:ring-primary-light btn-premium-glass",
   };
 
   const sizes = {
     sm: "px-4 py-1.5 text-sm",
     md: "px-6 py-2.5 text-base",
-    lg: "px-8 py-3 text-lg",
+    lg: "px-8 py-3 text-base md:text-lg",
   };
 
   const combinedStyles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 
   const motionProps = {
-    whileHover: { scale: disabled ? 1 : 1.025, y: disabled ? 0 : -1 },
-    whileTap: { scale: disabled ? 1 : 0.975 },
-    transition: { type: "spring" as const, stiffness: 400, damping: 15 },
+    whileHover: disabled
+      ? {}
+      : { scale: 1.03, y: -2, transition: { type: "spring" as const, stiffness: 400, damping: 18 } },
+    whileTap: disabled ? {} : { scale: 0.97, y: 0 },
   };
 
   if (to) {

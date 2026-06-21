@@ -4,6 +4,7 @@ import {
   MapPin, Phone, Mail, Clock, HelpCircle, Send, CheckCircle2, ChevronDown, Compass
 } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import ChapterNav from "../components/ChapterNav";
 import Button from "../components/Button";
 
 interface FAQItem {
@@ -355,6 +356,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <ChapterNav />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Award, FileText, CheckCircle2, GraduationCap } from "lucide-react";
 import SectionHeader from "../components/SectionHeader";
+import ChapterNav from "../components/ChapterNav";
 
 interface CalendarEvent {
   date: string;
@@ -298,6 +299,8 @@ export default function Academics() {
           </div>
         </div>
       </section>
+
+      <ChapterNav />
     </div>
   );
 }

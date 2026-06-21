@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, Phone, MapPin, Clock, ArrowUp, Compass } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, ArrowUp, Compass } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import SchoolLogo from "./SchoolLogo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -50,19 +51,7 @@ export default function Footer() {
           {/* Card 1: Logo, Info & Socials (4 Cols) */}
           <div className="lg:col-span-4 glass-panel-dark rounded-[2rem] p-8 border border-white/5 bg-white/5 backdrop-blur-md flex flex-col justify-between gap-6">
             <div className="flex flex-col gap-4">
-              <Link to="/" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white shadow-lg shadow-accent/20">
-                  <GraduationCap className="w-6 h-6" />
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="font-serif font-bold text-lg text-white leading-none">
-                    Prarthana
-                  </span>
-                  <span className="text-[9px] text-slate-400 uppercase tracking-widest mt-0.5 font-medium">
-                    English Medium School
-                  </span>
-                </div>
-              </Link>
+              <SchoolLogo size="lg" variant="light" linkToHome />
               <p className="text-sm text-slate-400 leading-relaxed font-light">
                 Nurturing young minds through classical values, comprehensive early education, and progressive pedagogical pathways designed for future thinkers and empathetic leaders.
               </p>
